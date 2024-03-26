@@ -4,8 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="Oferecemos serviços profissionais de criação de sites sob medida para ajudar sua empresa a se destacar online. Nossa equipe experiente de designers e desenvolvedores web trabalha para criar sites responsivos, visualmente impressionantes e otimizados para SEO. Entre em contato conosco hoje para começar a construir a presença online que sua empresa merece!">
+    <meta name="keywords" content="criação de sites, design de sites, desenvolvimento web, sites responsivos, otimização para SEO, sites personalizados, web design, criação de sites profissionais">
+    <meta name="author" content="Leutz desenvolvimento de sites e sistemas" />
+
+
+    <meta name="robots" content="index, follow">
+
     <title>LDS</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -32,6 +37,27 @@
 
         gtag('config', 'G-15Y5GWCN0Y');
     </script>
+    <style>
+        .cookie-alert {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: #333;
+          color: #fff;
+          padding: 10px 20px;
+          text-align: center;
+          z-index: 9999;
+        }
+
+        .cookie-alert button {
+          background-color: #fff;
+          color: #333;
+          border: none;
+          padding: 5px 10px;
+          cursor: pointer;
+        }
+      </style>
 </head>
 
 <body id="page-top">
@@ -308,9 +334,28 @@
     <!-- Footer-->
     <footer class="bg-light py-5">
         <div class="container px-4 px-lg-5">
-            <div class="small text-center text-muted">Copyright &copy; 2019 - <span id="ano-atual"></span> - Leutz desenvolvimento</div>
+            <div class="small text-center text-muted">Copyright &copy; 2019 - <span id="ano-atual"></span> - Lds - Leutz Desenvolvimento De Software / CNPJ: 52.748.216/0001-33</div>
         </div>
     </footer>
+    <div class="cookie-alert" id="cookieAlert">
+        Este site utiliza cookies para garantir uma melhor experiência. Ao continuar navegando, você concorda com o uso de cookies.
+        <a href="/PoliticaDePrivacidade.html" target="_blank">Política de Privacidade</a>
+        <button onclick="acceptCookies()">Aceitar</button>
+    </div>
+    <script>
+        function acceptCookies() {
+          document.getElementById("cookieAlert").style.display = "none";
+          localStorage.setItem("cookiesAccepted", "true"); // Salvando o consentimento no localStorage
+        }
+
+        // Verifica se o usuário já aceitou os cookies anteriormente.
+        // Se sim, oculta o alerta de cookies.
+        window.onload = function() {
+          if (localStorage.getItem("cookiesAccepted")) {
+            document.getElementById("cookieAlert").style.display = "none";
+          }
+        };
+    </script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SimpleLightbox plugin JS-->
