@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Avaliações do Google</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_DE_API&libraries=places"></script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 15
+            });
+
+            var service = new google.maps.places.PlacesService(map);
+            service.getDetails({
+                placeId: '@-26.9617916,-48.7493197,12z?entry=ttu'
+            }, function(place, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    var reviews = place.reviews;
+                    var reviewList = document.getElementById('reviews');
+
+                    reviews.forEach(function(review) {
+                        var item = document.createElement('li');
+                        item.innerHTML = '<strong>' + review.author_name + '</strong>: ' + review.text;
+                        reviewList.appendChild(item);
+                    });
+                }
+            });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <div id="map"></div>
+    <ul id="reviews"></ul>
+</body>
+</html>
